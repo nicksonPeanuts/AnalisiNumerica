@@ -1,0 +1,24 @@
+IMPLEMENTAZIONE ESERCITAZIONE
+LEGGERE LE SLIDE 
+
+TESTARE IMPLENTAZIONI (OPZIONALE)
+
+STIMARE COSTANTE ASINTOTICA: ek / (ek-1)^p 
+vedere se converge ad un valore
+
+mettere gli scarti in un vettore, al numeratore dal secondo fino all'ultimo, al denominatore dal primo fino al penultimo
+
+divisione vettoriale
+scartimod[2:end]./scartimod[1:end-1].^2
+p=2
+
+|__________| -> scartimod vettore con tutti gli scarti 
+
+ES 24!!!
+
+
+
+
+CONSEGNA: UN SOLO FILE ZIPPATO GRAFICO DA METTERE!!!
+
+
