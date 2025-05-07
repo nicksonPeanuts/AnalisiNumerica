@@ -1,8 +1,8 @@
 
-syms x
 %-----------
 %PRIMO ESERCIZIO DI MATLAB
 %
+
 f=@(x) (x-1).^2*log(x); 
 df = @(x)(x-1).*2*log(x) + (x-1)^2*1/x;
 
