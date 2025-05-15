@@ -1,7 +1,4 @@
 
-
-
-
 function[L,U] = lugauss(A)
     n = size(A,1);
     U = A;
