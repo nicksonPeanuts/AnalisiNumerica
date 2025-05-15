@@ -4,3 +4,5 @@ b = A*ones(n,1);
 [L,U]=lugauss(A);
 y=L\b;
 x=U\y;
+
+disp(x);
