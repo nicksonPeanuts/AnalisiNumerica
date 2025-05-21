@@ -4,9 +4,9 @@ vcond=zeros(10,1);
 % a partire dal vettore x = 1:1/(n-1):2 
 for n=3:10
     x=1:1/(n-1):2;
-    A=vander(x)
+    A=vander(x);
 %calcola il numero di condizionamento 
-    c=cond(A)
+    c=cond(A);
 %salva il valore nella componente i'esima del vettore vcond
     vcond(n)=c;
 pause;
