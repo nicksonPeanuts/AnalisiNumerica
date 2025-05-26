@@ -1,8 +1,7 @@
 %   ---------------------
 %   ESERCITAZIONE MATLAB
-%
-%
-%
+%   ---------------------
+
 
 
 % ---------a---------------- 
@@ -35,11 +34,9 @@ A(2,2) = 2*A(1,2) - epsilon;
 
 % Ax = b definire b in modo che x sia uguale a 1,1....,1 
 
-x = [1; 1; 1; 1; 1; 1; 1; 1];
-
-b = A\x;
-
-
+x_esatta = ones(8,1);
+b = A * x_esatta;
+disp(b);
 
 % ---------c--------------- 
 % alcoli la soluzione del sistema lineare Ax = b a partire dalla fattorizzazione LU della
@@ -47,15 +44,77 @@ b = A\x;
 % mediante il comando \ di Matlab .
 
 
+[L, U] = lugauss(A);
+
+% Ax = b -> LUx = b -> Ly = b -> Ux = y
+y = L\b;
+
+x = U\y;
+
 %---------d--------------
-% isualizzi a video il vettore soluzione ottenuto. Si usi format long per vedere tutte le cifre
+% visualizzi a video il vettore soluzione ottenuto. Si usi format long per vedere tutte le cifre
 % significative.
 
 
-%--------e---------------
+format long;
 
+disp("Vettore risultato in formato long: ");
+disp(x);
+
+
+
+%--------e---------------
+%   Calcoli il residuo relativo rrel e l'errore relativo erel
+
+rrel = norm(b-A*x_esatta) / norm(b);
+erel = norm(x-x_esatta)/ norm(x_esatta);
+
+
+disp(rrel);
+disp(erel);
 
 
 %--------f---------------
 % Ripeta i punti (b)-(e) ma risolvendo il sistema questa volta con la fattorizzazione LU con
 % pivoting fornita dalla function Matlab [L,U,P] = lu(A).
+
+
+[L,U,P] = lu(A);
+
+%risoluzione punto b sempre uguale, non c'è fattorizzazione
+%risoluzione punto c usando lu con pivoting
+
+%risolvo Ly = Pb
+
+y = L\P*b; 
+
+%risolvo Ux = y
+
+x = U\y;
+
+%punto d
+disp(x);
+
+
+%risoluzione punto e
+
+rrel = norm(b-A*x_esatta) / norm(b);
+erel = norm(x-x_esatta)/ norm(x_esatta);
+
+
+disp(rrel);
+disp(erel);
+
+
+
+% RISPOSTA ALLE DOMANDE
+%   Perché il residuo relativo nel primo caso (LU calcolata senza pivoting) non è dell’ordine
+%   della precisione di macchina?
+
+
+
+
+
+
+
+
