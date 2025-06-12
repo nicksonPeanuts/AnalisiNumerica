@@ -4,9 +4,10 @@
 %
 %----------------------------
 
-
+% questa la funzione originale
 f = @(x) 1 + atan(x) - x;
 
+%funzione g(x)
 ffpoint = @(x) 1 + atan(x);
 
 x0 = 0;
@@ -28,10 +29,10 @@ hold off
 
 figure(2)
 semilogy(1:k,abs(scarti),'m-*');
-title('Profilo di convergenza dei due matodi: punto fisso e Newton per x = g(x);\n');
+title('Profilo di convergenza per x = g(x);\n');
 xlabel('N. iterazioni');
 ylabel('scarto/residuo pesato');
-legend('Punto fisso','Newton');
+legend('Punto fisso');
 
 fid = fopen('pfisso.txt', 'w');
 fprintf(fid, '%6s\t%20s\t%20s\n', 'iter', 'x_k', 'scarto');

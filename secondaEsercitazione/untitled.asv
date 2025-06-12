@@ -1,0 +1,30 @@
+
+%ESERCITAZIONE PAG 25 DISPENSA
+
+format long;
+
+epsilon = 10e-14;
+A = [1 1 -3; 2 2-epsilon 4; 1 9 4];
+
+x_vero = [1 1 1]';
+
+b = A*x_vero;
+disp(b);
+
+x = A\b;
+disp(x);
+
+residuo_relativo = norm(b-A*x)/norm(b);
+errore_relativo = norm(x-x_vero)/norm(x);
+
+disp(residuo_relativo);
+disp(errore_relativo);
+
+%eseguiamo ora i calcoli con LU di matlab
+
+
+
+
+
+
+

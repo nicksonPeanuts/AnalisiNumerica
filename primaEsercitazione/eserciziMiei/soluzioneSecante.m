@@ -2,7 +2,6 @@
 %EQUAZIONE SECANTE VARIABILE
 %---------------------------
 
-
 f = @(x) exp(-x) + cos(x) - 3;
 
 x0 = 1;             % punto iniziale
