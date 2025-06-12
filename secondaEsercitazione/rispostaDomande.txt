@@ -1,0 +1,5 @@
+Risposta 1 - Perché il residuo senza pivoting non è preciso?
+Usando LU senza pivoting, i calcoli diventano instabili perché si potrebbe dividere per numeri troppo piccoli. Questo amplifica gli errori di arrotondamento. Anche se il residuo (cioè quanto Ax assomiglia a b) sembra accettabile (8.3e-07), la soluzione x potrebbe essere completamente sbagliata (errore 17.57). Il residuo da solo non basta per dire se la soluzione è buona, soprattutto con metodi instabili. In questo caso con la matrice di Hilbert modificata, possiamo notare il fenomeno.
+
+Risposta 2 - Perché con il pivoting il residuo è preciso ma l'errore no?
+Con il pivoting, LU diventa stabile e il residuo è piccolissimo (2e-17), come ci si aspetta. Ma se la matrice è mal condizionata come in questo caso, anche piccoli errori nei dati si amplificano nella soluzione. Quindi, anche se il metodo è preciso, (basso residuo) l'errore sulla soluzione (1.6e-08) resta più grande perché il problema stesso è sensibile. Pivoting aiuta, ma non può risolvere un problema mal condizionato.

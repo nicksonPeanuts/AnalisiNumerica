@@ -3,7 +3,6 @@
 %   ---------------------
 
 
-
 % ---------a---------------- 
 % Definisca la matrice A come la matrice di Hilbert di ordine n = 8 e poi cambi i primi
 % due elementi della seconda riga nel modo seguente: A(2, 1) = 2 ∗ A(1, 1) e A(2, 2) =
@@ -25,7 +24,6 @@ end
 % modifiche della seconda riga
 A(2,1) = 2*A(1,1);
 A(2,2) = 2*A(1,2) - epsilon;
-
 
 
 % ---------b---------------- 
@@ -66,11 +64,13 @@ disp(x);
 %--------e---------------
 %   Calcoli il residuo relativo rrel e l'errore relativo erel
 
-rrel = norm(b-A*x_esatta) / norm(b);
+rrel = norm(b-L*U*x_esatta) / norm(b);
 erel = norm(x-x_esatta)/ norm(x_esatta);
 
-
+disp("residuo relativo: lugauss");
 disp(rrel);
+
+disp("errore relativo: lugauss");
 disp(erel);
 
 
@@ -93,23 +93,18 @@ y = L\P*b;
 x = U\y;
 
 %punto d
-disp(x);
-
+%disp(x);
 
 %risoluzione punto e
 
-rrel = norm(b-A*x_esatta) / norm(b);
+rrel = norm(b-P'*L*U*x_esatta) / norm(b);
 erel = norm(x-x_esatta)/ norm(x_esatta);
 
-
+disp("residuo relativo: LU");
 disp(rrel);
+
+disp("errore relativo: LU");
 disp(erel);
-
-
-
-% RISPOSTA ALLE DOMANDE
-%   Perché il residuo relativo nel primo caso (LU calcolata senza pivoting) non è dell’ordine
-%   della precisione di macchina?
 
 
 
