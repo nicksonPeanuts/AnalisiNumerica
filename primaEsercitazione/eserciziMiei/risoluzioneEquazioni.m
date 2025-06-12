@@ -5,6 +5,8 @@
 
 f = @(x) exp(-x)+ cos(x)-3;
 
+df = @(x) -exp(-x) -sin(x);
+
 intervals = [-10 10];
 
 
